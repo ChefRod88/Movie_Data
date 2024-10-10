@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Data and AI Interaction</title>
+</head>
+<body>
+    <h1>Popular Movies (2000 - 2010)</h1>
+    <table border="1">
+        <tr>
+            <th>Title</th>
+            <th>Rating</th>
+            <th>Revenue</th>
+        </tr>
+        <!-- Loop through the movies passed from the Python code -->
+        {% for movie in movies %}
+        <tr>
+            <td>{{ movie[0] }}</td>
+            <td>{{ movie[1] }}</td>
+            <td>{{ movie[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Ask Questions About Movies</h2>
+    <form method="POST">
+        <label for="question">Enter your question:</label>
+        <textarea id="question" name="question" rows="4" cols="50" required></textarea><br><br>
+        <input type="submit" value="Ask AI">
+    </form>
+
+    <!-- Display the AI's response if available -->
+    {% if response %}
+    <h3>AI Response:</h3>
+    <p>{{ response }}</p>
+    {% endif %}
+</body>
+</html>
